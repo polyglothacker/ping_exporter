@@ -64,6 +64,15 @@ name).
 Additionally, a `ping_up` metric reports whether the exporter
 is running (and in which version).
 
+### Build
+
+To build the exporter:
+
+```console
+$ make build
+Building ping_exporter ...
+```
+
 ### Shell
 
 To run the exporter:
@@ -89,6 +98,12 @@ Getting the results for testing via cURL:
 ```console
 $ curl http://localhost:9427/metrics
 ```
+
+### As System daemon
+
+1. Make the debian package and install it (see below).
+2. Edit the configuration file `/etc/ping_exporter/config.yaml` and add targets.
+3. Start the systemd service as `sudo service ping-exporter start`
 
 ### Running as non-root user
 
@@ -173,6 +188,13 @@ NAME: ping-exporter
 | serviceAccount.name | string | `""` | Overrides the application's service account name which defaults to `"ping-exporter.fullname"` |
 | tolerations | list | `[]` | [Tolerations] | 
 
+## Debian Package
+
+```console
+$ make debian VERSION=x.y.z
+```
+will create the debian package named `ping-exportr-x.y.z_amd64.deb` in the `debian` folder.
+This comes with a sample configuration file and a system.d init script.
 
 ## Changes from previous versions
 
