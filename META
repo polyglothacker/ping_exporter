@@ -1,0 +1,5 @@
+Package: ping-exporter
+Version: VERSION
+Architecture: amd64
+Maintainer: Anand B Pillai <a.pillai@drishti.com>
+Description: Prometheus exporter for ICMP echo requests using go-ping
