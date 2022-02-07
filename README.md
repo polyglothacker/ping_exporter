@@ -193,7 +193,7 @@ NAME: ping-exporter
 ```console
 $ make debian VERSION=x.y.z
 ```
-will create the debian package named `ping-exportr-x.y.z_amd64.deb` in the `debian` folder.
+will create the debian package named `ping-exporter-x.y.z_amd64.deb` in the `debian` folder.
 This comes with a sample configuration file and a system.d init script.
 
 ## Changes from previous versions
