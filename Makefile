@@ -16,8 +16,10 @@ debian: build
 	@mkdir -p debian/ping_exporter-${VERSION}_amd64/usr/bin/
 	@mkdir -p debian/ping_exporter-${VERSION}_amd64/DEBIAN/
 	@mkdir -p debian/ping_exporter-${VERSION}_amd64/etc/ping_exporter/
+	@mkdir -p debian/ping_exporter-${VERSION}_amd64/etc/init.d/
 	@cp ping_exporter debian/ping_exporter-${VERSION}_amd64/usr/bin/
 	@cp config-sample.yaml debian/ping_exporter-${VERSION}_amd64/etc/ping_exporter/config.yaml
+	@cp scripts/ping-exporter debian/ping_exporter-${VERSION}_amd64/etc/init.d/
 	@sed 's/VERSION/${VERSION}/g' META > debian/ping_exporter-${VERSION}_amd64/DEBIAN/control
 	@cd debian/ && dpkg-deb --build --root-owner-group ping_exporter-${VERSION}_amd64/ && cd -
 	@if [ -f debian/ping_exporter-${VERSION}_amd64.deb ]; then \
